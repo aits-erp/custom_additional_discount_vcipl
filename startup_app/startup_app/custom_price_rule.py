@@ -119,7 +119,7 @@ def apply_additional_discount_if_any(pricing_rule, item_details, args):
         return
 
     addl_pct = flt(getattr(pricing_rule, "addl_discount_percentage", 0))
-    if addl_pct <= 0:
+    if addl_pct == 0:
         return
 
     # 2) date window (inclusive)
@@ -279,3 +279,4 @@ setattr(
     "apply_price_discount_rule",
     custom_apply_price_discount_rule,
 )
+
